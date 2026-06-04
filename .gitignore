@@ -1,0 +1,8 @@
+node_modules/
+.playwright-mcp/
+
+*-IGNORE*
+.env
+.env.local
+
+dist/
