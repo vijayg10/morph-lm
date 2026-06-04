@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import 'reflect-metadata';
 import { loadConfig } from './config/config.js';
 import { createLogger } from './telemetry/logger.js';
