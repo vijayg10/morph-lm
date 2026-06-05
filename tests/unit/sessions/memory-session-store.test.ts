@@ -14,9 +14,9 @@ describe('MemorySessionStore', () => {
   });
 
   it('creates a session with a uuid id', async () => {
-    const session = await store.create('gemini-cli');
+    const session = await store.create('gemini:mlm');
     expect(session.id).toMatch(/^[0-9a-f-]{36}$/);
-    expect(session.agentName).toBe('gemini-cli');
+    expect(session.agentName).toBe('gemini:mlm');
     expect(session.messages).toHaveLength(0);
   });
 

@@ -60,7 +60,7 @@ curl http://localhost:3000/v1/chat/completions \
   -H "Authorization: Bearer your-secret-key" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-cli",
+    "model": "gemini:mlm",
     "messages": [{"role": "user", "content": "Hello"}]
   }'
 
@@ -69,7 +69,7 @@ curl http://localhost:3000/v1/chat/completions \
   -H "Authorization: Bearer your-secret-key" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-cli",
+    "model": "gemini:mlm",
     "messages": [{"role": "user", "content": "Hello"}],
     "stream": true
   }'
@@ -101,7 +101,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="gemini-cli",
+    model="gemini:mlm",
     messages=[{"role": "user", "content": "Hello"}]
 )
 print(response.choices[0].message.content)
@@ -118,7 +118,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "gemini-cli",
+  model: "gemini:mlm",
   messages: [{ role: "user", content: "Hello" }],
 });
 console.log(completion.choices[0].message.content);

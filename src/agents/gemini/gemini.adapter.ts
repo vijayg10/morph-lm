@@ -6,7 +6,7 @@ import type { AgentAdapter } from '../base/agent-adapter.interface.js';
 import type { ChatRequest, AgentResponse } from '../../types/common.types.js';
 
 export class GeminiAdapter implements AgentAdapter {
-  readonly name = 'gemini-cli';
+  readonly name = 'gemini:mlm';
   private readonly limiter: ConcurrencyLimiter;
 
   constructor(

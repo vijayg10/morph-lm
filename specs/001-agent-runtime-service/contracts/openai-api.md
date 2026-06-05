@@ -27,13 +27,13 @@ No body. No query parameters.
   "object": "list",
   "data": [
     {
-      "id": "gemini-cli",
+      "id": "gemini:mlm",
       "object": "model",
       "created": 1717459200,
       "owned_by": "morph-lm"
     },
     {
-      "id": "claude-code",
+      "id": "claude:mlm",
       "object": "model",
       "created": 1717459200,
       "owned_by": "morph-lm"
@@ -70,7 +70,7 @@ Create a chat completion using a specified agent.
 
 ```json
 {
-  "model": "gemini-cli",
+  "model": "gemini:mlm",
   "messages": [
     {
       "role": "system",
@@ -115,7 +115,7 @@ Create a chat completion using a specified agent.
   "id": "chatcmpl-abc123",
   "object": "chat.completion",
   "created": 1717459200,
-  "model": "gemini-cli",
+  "model": "gemini:mlm",
   "choices": [
     {
       "index": 0,
@@ -141,13 +141,13 @@ Create a chat completion using a specified agent.
 Content-Type: `text/event-stream`
 
 ```
-data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini-cli","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
+data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini:mlm","choices":[{"index":0,"delta":{"role":"assistant","content":""},"finish_reason":null}]}
 
-data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini-cli","choices":[{"index":0,"delta":{"content":"Kubernetes"},"finish_reason":null}]}
+data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini:mlm","choices":[{"index":0,"delta":{"content":"Kubernetes"},"finish_reason":null}]}
 
-data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini-cli","choices":[{"index":0,"delta":{"content":" is"},"finish_reason":null}]}
+data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini:mlm","choices":[{"index":0,"delta":{"content":" is"},"finish_reason":null}]}
 
-data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini-cli","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+data: {"id":"chatcmpl-abc123","object":"chat.completion.chunk","created":1717459200,"model":"gemini:mlm","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
 
 data: [DONE]
 ```
@@ -192,7 +192,7 @@ Create a new conversation session.
 
 ```json
 {
-  "model": "gemini-cli",
+  "model": "gemini:mlm",
   "workspace": "/repos/project-a"
 }
 ```
@@ -208,7 +208,7 @@ Create a new conversation session.
 {
   "id": "sess_abc123",
   "object": "session",
-  "model": "gemini-cli",
+  "model": "gemini:mlm",
   "workspace": "/repos/project-a",
   "created_at": 1717459200
 }
@@ -226,7 +226,7 @@ Retrieve session details.
 {
   "id": "sess_abc123",
   "object": "session",
-  "model": "gemini-cli",
+  "model": "gemini:mlm",
   "workspace": "/repos/project-a",
   "created_at": 1717459200,
   "message_count": 4
@@ -287,8 +287,8 @@ These endpoints do NOT require authentication.
 {
   "status": "ready",
   "agents": {
-    "gemini-cli": true,
-    "claude-code": true,
+    "gemini:mlm": true,
+    "claude:mlm": true,
     "aider": false
   }
 }

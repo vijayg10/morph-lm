@@ -6,7 +6,7 @@ import type { AgentAdapter } from '../base/agent-adapter.interface.js';
 import type { ChatRequest, AgentResponse } from '../../types/common.types.js';
 
 export class ClaudeAdapter implements AgentAdapter {
-  readonly name = 'claude-code';
+  readonly name = 'claude:mlm';
   private readonly limiter: ConcurrencyLimiter;
 
   constructor(

@@ -21,7 +21,7 @@ A developer using any OpenAI-compatible application (e.g., LangChain, AnythingLL
 **Acceptance Scenarios**:
 
 1. **Given** the service is running with agents registered, **When** a client sends `GET /v1/models`, **Then** the response lists all registered agents as available models in OpenAI models format.
-2. **Given** the service is running, **When** a client sends `POST /v1/chat/completions` with model "gemini-cli" and messages, **Then** the response contains the agent's reply in OpenAI chat completions format with proper `id`, `object`, and `choices` fields.
+2. **Given** the service is running, **When** a client sends `POST /v1/chat/completions` with model "gemini:mlm" and messages, **Then** the response contains the agent's reply in OpenAI chat completions format with proper `id`, `object`, and `choices` fields.
 3. **Given** the service is running, **When** a client sends `POST /v1/chat/completions` with `stream: true`, **Then** the response streams Server-Sent Events in OpenAI streaming format.
 4. **Given** the service is running behind LLM Gateway, **When** the gateway routes a request to this service, **Then** the response is fully compatible with the gateway's expected format.
 

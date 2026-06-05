@@ -64,7 +64,7 @@ import OpenAI from 'openai';
 const client = new OpenAI({ baseURL: 'http://localhost:3000/v1', apiKey: 'your-api-key' });
 
 const response = await client.chat.completions.create({
-  model: 'gemini-cli',
+  model: 'gemini:mlm',
   messages: [{ role: 'user', content: 'Hello!' }],
 });
 ```

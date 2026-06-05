@@ -10,7 +10,7 @@ Represents a registered AI CLI tool with its adapter and runtime state.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| name | string | Unique identifier (e.g., "gemini-cli", "claude-code", "aider") |
+| name | string | Unique identifier (e.g., "gemini:mlm", "claude:mlm", "aider") |
 | command | string | CLI executable name (e.g., "gemini", "claude", "aider") |
 | available | boolean | Whether the CLI was found on PATH at startup |
 | adapter | AgentAdapter | Implementation of the agent interface |

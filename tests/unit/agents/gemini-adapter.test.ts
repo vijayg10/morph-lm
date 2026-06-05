@@ -16,8 +16,8 @@ describe('GeminiAdapter', () => {
   let adapter: GeminiAdapter;
   beforeEach(() => { adapter = new GeminiAdapter(30000, 5); });
 
-  it('reports name as gemini-cli', () => {
-    expect(adapter.name).toBe('gemini-cli');
+  it('reports name as gemini:mlm', () => {
+    expect(adapter.name).toBe('gemini:mlm');
   });
 
   it('reports availability via which()', async () => {
@@ -27,18 +27,18 @@ describe('GeminiAdapter', () => {
 
   it('chat returns AgentResponse', async () => {
     const result = await adapter.chat({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'user', content: 'hello' }],
     });
     expect(result.content).toBe('gemini response');
-    expect(result.model).toBe('gemini-cli');
+    expect(result.model).toBe('gemini:mlm');
     expect(result.done).toBe(true);
   });
 
   it('streamChat yields chunks', async () => {
     const chunks: string[] = [];
     for await (const c of adapter.streamChat({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'user', content: 'hello' }],
     })) {
       chunks.push(c);

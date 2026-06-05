@@ -4,7 +4,7 @@ import { ChatCompletionRequestSchema } from '../../../src/api/validators/openai.
 describe('ChatCompletionRequestSchema', () => {
   it('validates a minimal valid request', () => {
     const result = ChatCompletionRequestSchema.safeParse({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'user', content: 'hello' }],
     });
     expect(result.success).toBe(true);
@@ -12,7 +12,7 @@ describe('ChatCompletionRequestSchema', () => {
 
   it('defaults stream to false', () => {
     const result = ChatCompletionRequestSchema.safeParse({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'user', content: 'hello' }],
     });
     expect(result.success && result.data.stream).toBe(false);
@@ -27,13 +27,13 @@ describe('ChatCompletionRequestSchema', () => {
   });
 
   it('rejects empty messages', () => {
-    const result = ChatCompletionRequestSchema.safeParse({ model: 'gemini-cli', messages: [] });
+    const result = ChatCompletionRequestSchema.safeParse({ model: 'gemini:mlm', messages: [] });
     expect(result.success).toBe(false);
   });
 
   it('rejects invalid role', () => {
     const result = ChatCompletionRequestSchema.safeParse({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'bot', content: 'hello' }],
     });
     expect(result.success).toBe(false);
@@ -41,7 +41,7 @@ describe('ChatCompletionRequestSchema', () => {
 
   it('accepts optional workspace and session_id', () => {
     const result = ChatCompletionRequestSchema.safeParse({
-      model: 'gemini-cli',
+      model: 'gemini:mlm',
       messages: [{ role: 'user', content: 'hello' }],
       workspace: '/repos/project',
       session_id: '550e8400-e29b-41d4-a716-446655440000',
