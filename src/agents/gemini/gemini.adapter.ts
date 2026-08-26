@@ -17,7 +17,7 @@ export class GeminiAdapter implements AgentAdapter {
   }
 
   async checkAvailability(): Promise<boolean> {
-    return which('gemini');
+    return which('agy');
   }
 
   async chat(request: ChatRequest): Promise<AgentResponse> {
@@ -26,7 +26,7 @@ export class GeminiAdapter implements AgentAdapter {
     const start = Date.now();
     try {
       const prompt = request.messages.map((m) => `${m.role}: ${m.content}`).join('\n');
-      const result = await runProcess('gemini', ['-p', prompt], {
+      const result = await runProcess('agy', ['-p', prompt, '--output-format', 'text'], {
         ...(request.workspace != null ? { cwd: request.workspace } : {}),
         timeoutMs: this.timeoutMs,
       });
@@ -50,7 +50,7 @@ export class GeminiAdapter implements AgentAdapter {
     const start = Date.now();
     try {
       const prompt = request.messages.map((m) => `${m.role}: ${m.content}`).join('\n');
-      yield* streamProcess('gemini', ['-p', prompt], {
+      yield* streamProcess('agy', ['-p', prompt, '--output-format', 'text'], {
         ...(request.workspace != null ? { cwd: request.workspace } : {}),
         timeoutMs: this.timeoutMs,
       });
