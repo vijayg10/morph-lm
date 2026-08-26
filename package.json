@@ -15,6 +15,7 @@
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
     "test:e2e": "vitest run tests/e2e",
+    "test:func": "vitest run --config vitest.func.config.ts",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src tests",
     "format": "prettier --write src tests"
